@@ -1,0 +1,45 @@
+class Employee(models.Model):
+
+    name=models.CharField(max_length=100)
+    age=models.PositiveIntegerField()
+    gender=models.CharField(max_length=100)
+    department=models.CharField(max_length=200)
+    phone=models.CharField(max_length=12)
+    salary=models.PositiveIntegerField()
+    address=models.TextField()
+    qualification=models.CharField(max_length=200,null=True)
+
+
+>>>ORM query for creating a resource
+
+modelname.objects.create(field=value,field2=value)
+
+Employee.objects.create(
+                      
+                      name="ram",
+                      age=21,
+                      gender="male",
+                      department="hr",
+                      phone="546556466",
+                      salary=464455,
+                      address="gvdgvbhfghb",
+                      qualification="mca",
+)
+>>>>ORM query for fetching all records
+
+qs=Modelname.objects.all()  [ qs=queryset ]
+
+qs=Employee.objects.all()
+
+>>>>orm query or fetchinf a specific record 
+
+qs-Modelname.objects.get()
+qs=Employee.objects.get(id=4)
+qs.name
+
+>>>>orm query to filter records
+
+qs=modelname.objects.filter(field=value)
+qs=Employee.objects.filter(gender=male)
+
+

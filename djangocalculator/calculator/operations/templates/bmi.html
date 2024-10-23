@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+
+{%block main_block%}
+
+<div class="container">
+
+    <div class="row mt-4">
+        <div class="col-3"></div>
+        <div class="col-6 border border-5 p-4 shadow">
+
+            <form action=""method="post">
+                <h4 class="text-center">BMI CALCULATOR</h4>
+                {%csrf_token%}
+                {{form}}
+                <button type="submit">find</button>
+    
+    
+            </form>
+    
+        </div>
+        <div class="col-3"></div>
+    </div>
+    {{result}}
+
+
+{%endblock%}

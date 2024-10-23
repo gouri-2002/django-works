@@ -1,0 +1,133 @@
+
+TO CREATE NEW object
+    ==============================
+    
+    
+    name=models.CharField(max_length=100)
+    age=models.PositiveIntegerField()
+    gender=models.CharField(max_length=100)
+    department=models.CharField(max_length=200)
+    phone=models.CharField(max_length=12)
+    salary=models.PositiveIntegerField(max_length=20)
+    address=models.TextField()
+    qualification=models.CharField(max_length=10,null=True)
+
+
+
+import models
+
+>ModelName.objects.create(Field=value,field2=value)
+
+Employee.objects.create(name="ram",age=29,
+                        gender="male",
+                        department="hr",
+                        phone="3767637672"
+                        salary=46573
+                        address="adress"
+                        qualification="mca"
+                    )
+
+
+
+>>> Orm query for fetching all objects
+    >>qs= query sqlite
+
+
+
+    >>qs= Modelname.objects.all()
+    >>qs= Employee.objects.all()
+
+
+>>> Orm query to fetch a specific record
+
+
+    >>qs=ModelName.objects.get()
+
+
+>> Orm query for filtering employees
+
+    qs=Employee.objects.filter(gender="male")
+
+
+>>>>fetch Employee working as mechanical
+
+    qs=employees.objects.filter(department="mechanical")
+
+
+>>>>fetch employee salary less than 50000
+
+     qs=employee.objects.filter(salary__lt=50000)
+
+
+>>>> take the details of employyes with depart=mec,ee expect cs
+    qs=Employee.objects.all().exclude(department=computer science)   
+     
+
+>>>>filter employee whose salary > 50000 and department!=electrical
+
+    qs=Employee.object.filter(salary__gt=50000).exclude(department=electrical)
+
+>>>>update employee details
+
+     Employee.objects.filter(id=4).update(age=25,salary=15000)
+
+>>>delete
+      Employee.objects.get(id=5).delete() 
+
+qs=Employee.objects.all().order_by("-age)      
+qs=Employee.objects.all().order_by("-salary")
+Employee.objects.filter(id=2).update(name="anjitha")
+
+
+
+Django Database Table Creation Question
+
+You are tasked with creating a movie database in Django. The movie model should have the following fields:
+
+- id (Integer Field, Primary Key)
+- title (String Field)
+- genre (String Field)
+- runtime (Integer Field representing the duration in minutes)
+- language (String Field)
+- year (Integer Field representing the release year)
+- director (String Field)
+
+Instructions:
+
+1. Write the steps required to create the Django model for the Movie table with the specified fields.
+2. How will you apply the changes to the database after creating the model?
+3. Write the code for the Django model.
+4. Mention how you would query all movies directed by a specific director.
+
+
+
+models.py.................
+
+
+class Movie(models.Model):
+
+    title=models.CharField(max_length=200)
+    genre=models.CharField(max_length=200)
+    run_time=models.PositiveIntegerField()
+    language=models.CharField(max_length=200)
+    year=models.PositiveIntegerField()
+    director=models.CharField(max_length=200)
+
+>>>create a new movie
+   
+   Movie.object.create(title="arm",genre="action",run_time=150,year=2024,language="malayalam",director="jithin")
+ 
+ >>>moive start with a 
+ qs=Movie.objects.filter(title_startswith="a") 
+
+ >>>
+ qs=Movie.objects.filter(title__containS="m")
+
+
+ qs=Movie.objects.all().values("run_time").aggregate(Min("run_time"))
+
+
+
+
+
+

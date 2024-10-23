@@ -1,0 +1,49 @@
+
+
+    brand=models.CharField(max_length=20)
+    fuel=models.CharField(max_length=20)
+    transmission=models.CharField(max_length=20)
+    color=models.CharField(max_length=20)
+    price=models.PositiveIntegerField()
+    mileage=models.IntegerField()
+
+Cars.objects.create(
+    brand="BMW"
+    fuel="petrol"
+    transmission="automatic"
+    color="black"
+    price=20000000
+    mileage5
+)
+
+>>>>record all
+
+qs=Cars.objects.all()
+
+>>>>get specific record
+qs=Cars.objects.get(field=value)
+
+>>>>fiter car based on color
+qs=Cars.objects.filter(color="black)
+
+>>>>filter based on transmission
+qs=Cars.objects.filter(transmission="automatic")
+
+>>>>filter cars based on mileage<10
+qs=Cars.objects.filter(mileage__lt=10)
+
+>>>>filter cars based on mileage>10
+qs=Cars.objects.filter(mileage__gt=10)
+
+>>>>filter cars based on fuel exclude=petrol
+qs=Cars.objects.all().exclude(fuel="petrol")
+
+>>>>filter cars mileage>10 and exclude color red
+ qs=Cars.objects.filter(mileage__gt=10).exclude(color="red")
+
+
+
+
+
+
+
